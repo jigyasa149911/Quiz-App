@@ -17,16 +17,18 @@ class NextOrSubmitButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        if (questionNumber == 6) {
-          Navigator.pushReplacementNamed(
-            context,
-            finalScoreScreenRoute,
-          );
-        } else {
-          Navigator.pushReplacementNamed(context, quizScreenRoute,
-              arguments: QuizScreenArgumentModel(
-                  questionNumber: questionNumber + 1,
-                  totalScore: AppState.finalScore));
+        if (isOptionTapped == true) {
+          if (questionNumber == 6) {
+            Navigator.pushReplacementNamed(
+              context,
+              finalScoreScreenRoute,
+            );
+          } else {
+            Navigator.pushReplacementNamed(context, quizScreenRoute,
+                arguments: QuizScreenArgumentModel(
+                    questionNumber: questionNumber + 1,
+                    totalScore: AppState.finalScore));
+          }
         }
       },
       child: Container(
